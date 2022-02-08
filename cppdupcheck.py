@@ -60,6 +60,13 @@ def shouldSkip(line):
     return False
 
 
+def emptyEnding(lines):
+    if lines[-1] == '\n':
+        return True
+
+    return False
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
             description='Check if a directory contains duplicate code, found in the files listed in the inputlist.')
@@ -90,7 +97,12 @@ if __name__ == '__main__':
                 if shouldSkip(lines[index]):
                     continue
 
-                hash_object = hashlib.sha256(bytes(''.join(lines[index:index+codeBlockSize]), 'utf-8'))
+                code_block = lines[index:index+codeBlockSize]
+
+                if emptyEnding(code_block):
+                    continue
+
+                hash_object = hashlib.sha256(bytes(''.join(code_block), 'utf-8'))
 
                 addToDatabase(hash_object.hexdigest(), file_path, index + 1) # +1 as lines start at 1
 

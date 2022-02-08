@@ -14,3 +14,13 @@ Duis laoreet ligula nisi, ac rhoncus sem euismod non. Fusce quis eros hendrerit,
 Vivamus hendrerit ut dui quis mollis. Pellentesque non sem nec sem semper fringilla nec vitae metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce tincidunt nisi eu placerat sodales. Praesent et dictum urna, at interdum odio. Curabitur varius nibh orci, a blandit nunc interdum sed. Nunc sit amet enim mi. Vestibulum sed varius purus, non mattis nibh. Pellentesque vehicula nulla et ultrices eleifend. Praesent scelerisque scelerisque quam pulvinar molestie. Donec est ipsum, fermentum ac fermentum et, finibus a magna. Fusce ac nulla at nulla condimentum ultricies quis nec nisl. Etiam ac tempor mi. Ut risus quam, pretium in volutpat in, rhoncus id nisi.
 
 Quisque eleifend nulla a maximus convallis. Nunc at efficitur felis. Integer ac nibh aliquet, tincidunt sem ac, feugiat ante. Vestibulum imperdiet orci vel risus laoreet hendrerit. Aenean faucibus molestie mauris, nec consectetur est scelerisque eget. Donec ultricies auctor cursus. Sed vitae leo vehicula, dapibus urna at, molestie erat. Donec id viverra massa. Suspendisse potenti. 
+
+functionC()
+{
+    if(somethingElse)
+    {
+        return false;
+    }
+    return true;
+}
+
