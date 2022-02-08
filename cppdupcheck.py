@@ -45,6 +45,21 @@ def getAllFilesAsGenerator(directory):
                  directory.glob("**/*.cpp"))
 
 
+def shouldSkip(line):
+    if line == '\n':
+        return True
+
+    #skipping, as pragma's are generally boilerplate code
+    if line.startswith("#pragma"):
+        return True
+
+    #skipping for now, maybe in future releases this should be optional
+    if line.startswith("#include"):
+        return True
+
+    return False
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
             description='Check if a directory contains duplicate code, found in the files listed in the inputlist.')
@@ -72,7 +87,7 @@ if __name__ == '__main__':
             code_start_index = findEndOfHeaderComment(lines)
 
             for index in range(code_start_index, len(lines)-codeBlockSize):
-                if lines[index] == '\n':
+                if shouldSkip(lines[index]):
                     continue
 
                 hash_object = hashlib.sha256(bytes(''.join(lines[index:index+codeBlockSize]), 'utf-8'))

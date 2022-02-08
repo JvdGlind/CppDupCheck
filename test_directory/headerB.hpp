@@ -7,6 +7,10 @@
 
 #pragma once
 
+#include <something.h>
+
+class HeaderZ;
+
 class HeaderB
 {
 public:
