@@ -5,6 +5,7 @@ import hashlib
 import json
 import sys
 
+from itertools import chain
 
 from pathlib import Path
 
@@ -37,6 +38,13 @@ def addToDatabase(codeBlockHash, filePath, line):
     database[codeBlockHash].append({"path": str(filePath), "line": line})
 
 
+def getAllFilesAsGenerator(directory):
+    return chain(directory.glob("**/*.h"),
+                 directory.glob("**/*.hpp"),
+                 directory.glob("**/*.c"),
+                 directory.glob("**/*.cpp"))
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
             description='Check if a directory contains duplicate code, found in the files listed in the inputlist.')
@@ -50,9 +58,8 @@ if __name__ == '__main__':
         print("Invalid directory")
         sys.exit(-1)
 
-    for file_path in directory.glob("**/*.cpp"):
+    for file_path in getAllFilesAsGenerator(directory):
         with open(file_path) as input_file:
-
             try:
                 lines = [x.replace(' ', '') for x in input_file.readlines()]
             except UnicodeDecodeError:
