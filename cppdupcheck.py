@@ -92,7 +92,7 @@ if __name__ == '__main__':
 
                 hash_object = hashlib.sha256(bytes(''.join(lines[index:index+codeBlockSize]), 'utf-8'))
 
-                addToDatabase(hash_object.hexdigest(), file_path, index)
+                addToDatabase(hash_object.hexdigest(), file_path, index + 1) # +1 as lines start at 1
 
     violations = [database[x] for x in database if len(database[x]) > 1]
 
