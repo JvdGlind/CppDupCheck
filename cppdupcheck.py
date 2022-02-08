@@ -12,6 +12,21 @@ database = {}
 codeBlockSize = 6
 
 
+def findEndOfHeaderComment(lines):
+    if '/*' not in lines[0]:
+        return 0
+
+    index = 1
+
+    while index < len(lines):
+        if '*/' in lines[index]:
+            return index + 1
+
+        index += 1
+
+    raise Exception("No end of copyright found")
+
+
 def addToDatabase(codeBlockHash, filePath, line):
     if type(codeBlockHash) != str:
         raise Exception()
@@ -47,7 +62,9 @@ if __name__ == '__main__':
             if len(lines) < codeBlockSize:
                 continue
 
-            for index in range(0, len(lines)-codeBlockSize):
+            code_start_index = findEndOfHeaderComment(lines)
+
+            for index in range(code_start_index, len(lines)-codeBlockSize):
                 if lines[index] == '\n':
                     continue
 
