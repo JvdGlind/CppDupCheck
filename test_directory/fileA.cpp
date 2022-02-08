@@ -1,3 +1,10 @@
+/* Test copyright notice
+ * We all know that the below lines are Lorem ipsum
+ * so who really cares
+ * about who owns it
+ * this is free software anyway.
+ */
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut finibus egestas magna, non tempor arcu semper et. Vestibulum lacinia bibendum tellus nec pharetra. Quisque fringilla arcu tempor risus semper, ut sodales nulla ultricies. Quisque at erat ac dolor fermentum iaculis eget id lacus. Nullam massa dolor, tincidunt nec rhoncus volutpat, blandit et lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean leo justo, efficitur a nisl vel, dictum lobortis diam.
 
 Ut quis elit ut mauris auctor eleifend eget sed ex. Maecenas lacus magna, fringilla at lacinia a, malesuada ut est. Nunc eu ex euismod, ultrices eros eu, bibendum dui. Nulla volutpat tristique enim sit amet tempor. Nam non arcu finibus, imperdiet nulla sed, tristique felis. Fusce libero tellus, vestibulum sit amet neque a, viverra ornare lacus. Morbi at lacus dui. Aliquam sem lectus, consectetur semper sem in, dapibus ultricies urna. Aliquam congue ultrices leo sit amet fringilla. Pellentesque ultrices pharetra ante, in commodo quam aliquet nec. Sed id vehicula mauris, quis rutrum nisi. Donec suscipit elementum justo a convallis. Etiam consectetur eget sem non feugiat. Fusce rhoncus elementum orci, eu dignissim nisi ullamcorper vitae.
