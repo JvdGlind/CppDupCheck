@@ -35,7 +35,12 @@ if __name__ == '__main__':
 
     for file_path in directory.glob("*.cpp"):
         with open(file_path) as input_file:
-            lines = [x.replace(' ', '') for x in input_file.readlines()]
+
+            try:
+                lines = [x.replace(' ', '') for x in input_file.readlines()]
+            except UnicodeDecodeError:
+                print(f"Failed to read {file_path}", file=sys.stderr)
+                continue
 
             if len(lines) < codeBlockSize:
                 continue
