@@ -50,7 +50,7 @@ if __name__ == '__main__':
         print("Invalid directory")
         sys.exit(-1)
 
-    for file_path in directory.glob("*.cpp"):
+    for file_path in directory.glob("**/*.cpp"):
         with open(file_path) as input_file:
 
             try:
