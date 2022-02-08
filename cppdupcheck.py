@@ -2,6 +2,7 @@
 
 import argparse
 import hashlib
+import json
 import sys
 
 
@@ -18,13 +19,14 @@ def addToDatabase(codeBlockHash, filePath, line):
     if codeBlockHash not in database:
         database[codeBlockHash] = []
 
-    database[codeBlockHash].append({"path": filePath, "line": line})
+    database[codeBlockHash].append({"path": str(filePath), "line": line})
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
             description='Check if a directory contains duplicate code, found in the files listed in the inputlist.')
     parser.add_argument('-d', '--directory', help='path to the directory containing files', required=True)
+    parser.add_argument('-o', '--output', help='file to write the output to')
 
     args = parser.parse_args()
 
@@ -53,6 +55,13 @@ if __name__ == '__main__':
 
                 addToDatabase(hash_object.hexdigest(), file_path, index)
 
-    for sha_hash in database:
-        if len(database[sha_hash]) > 1:
-            print(database[sha_hash])
+    violations = [database[x] for x in database if len(database[x]) > 1]
+
+    if args.output:
+        with open(args.output, 'w') as output_file:
+            output_file.write(json.dumps(violations, indent=4))
+    else:
+        for violation in violations:
+            print(f"Duplicate code found in {len(violation)} files:")
+            for file_meta in violation:
+                print(f"\t {file_meta['path']} from line {file_meta['line']}")
