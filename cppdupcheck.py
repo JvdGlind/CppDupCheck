@@ -51,7 +51,7 @@ if __name__ == '__main__':
                 if lines[index] == '\n':
                     continue
 
-                hash_object = hashlib.sha256(bytes(''.join(lines[index:index+codeBlockSize-1]), 'utf-8'))
+                hash_object = hashlib.sha256(bytes(''.join(lines[index:index+codeBlockSize]), 'utf-8'))
 
                 addToDatabase(hash_object.hexdigest(), file_path, index)
 
